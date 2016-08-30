@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+	<script src="app.js"></script>
+</head>
+<body ng-app="app">
+	<div class="container" ng-controller="audioController as sounds">
+		<div class="row" ng-hide="sounds.audioLoaded">
+			<div class="col-md-12">
+				<p>Loading sounds...</p>
+			</div>
+		</div>
+		<div class="row" ng-show="sounds.audioLoaded">
+			<div class="col-md-6">
+				<button class="btn-primary btn-lrg btn-block" ng-click="sounds.changeTo('morning')">Morning</button>
+			</div>
+			<div class="col-md-6">
+				<button class="btn-primary btn-lrg btn-block" ng-click="sounds.changeTo('lateMorning')">Late Morning</button>
+			</div>
+		</div>
+		<div class="row" ng-show="sounds.audioLoaded">
+			<div class="col-md-6">
+				<button class="btn-primary btn-lrg btn-block" ng-click="sounds.changeTo('noon')">Noon</button>
+			</div>
+			<div class="col-md-6">
+				<button class="btn-primary btn-lrg btn-block" ng-click="sounds.changeTo('afternoon')">Afternoon</button>
+			</div>
+		</div>
+		<div class="row" ng-show="sounds.audioLoaded">
+			<div class="col-md-6">
+				<button class="btn-primary btn-lrg btn-block" ng-click="sounds.changeTo('evening')">Evening</button>
+			</div>
+			<div class="col-md-6">
+				<button class="btn-primary btn-lrg btn-block" ng-click="sounds.changeTo('night')">Night</button>
+			</div>
+		</div>
+		<div class="row">
+			<h2>Currently Playing</h2>
+			<ul>
+				<li ng-repeat="instrument in sounds.currentInstruments">{{instrument}}</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
